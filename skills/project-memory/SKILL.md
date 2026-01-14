@@ -28,6 +28,20 @@ description: Use when starting work on a project, ending a session, or needing t
     └── [topic].md           # Persistent learnings
 ```
 
+## Templates
+
+Use templates from `${PLUGIN_ROOT}/templates/` when writing memories:
+
+| Memory Type | Template | Path Pattern |
+|-------------|----------|--------------|
+| Session | `templates/session.md` | `active/sessions/*` |
+| Task | `templates/task.md` | `active/tasks/*` |
+| Learning | `templates/learning.md` | `learnings/**` |
+
+**Datetime format:** `YYYY-MM-DD HH:MM`
+
+Read the template, fill placeholders (`{{datetime}}`, `{{content}}`, etc.), then write.
+
 ## Quick Reference
 
 | Action | Command |
@@ -37,7 +51,7 @@ description: Use when starting work on a project, ending a session, or needing t
 | Search memories | `/pm:search [term]` |
 | View structure | `pm tree` |
 | Read specific | `pm read "[name]"` |
-| Write learning | `pm write "learnings/[topic]" "[content]"` |
+| Write learning | Use learning template |
 
 ## Best Practices
 
