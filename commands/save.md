@@ -20,8 +20,11 @@ Before saving, identify:
 
 Read template from `${PLUGIN_ROOT}/templates/session.md`, fill placeholders:
 - `{{datetime}}` - current datetime (YYYY-MM-DD HH:MM)
+- `{{project}}` - project/repo name
 - `{{working_on}}` - tasks/tickets being worked on
 - `{{progress}}` - what was accomplished
+- `{{decisions}}` - key decisions made (or "None")
+- `{{blockers}}` - blockers or pending questions (or "None")
 - `{{next}}` - what's remaining
 
 Write to `active/sessions/current`.
@@ -49,7 +52,8 @@ pm archive "active/tasks/TICKET-ID" --category completed
 
 Read template from `${PLUGIN_ROOT}/templates/learning.md`, fill placeholders:
 - `{{title}}` - topic name
-- `{{content}}` - what you learned and when it's useful
+- `{{content}}` - what you learned
+- `{{when_useful}}` - when to apply this knowledge
 - `{{datetime}}` - current datetime
 
 Write to `learnings/[topic]`.
