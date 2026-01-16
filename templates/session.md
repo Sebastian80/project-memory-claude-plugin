@@ -2,6 +2,9 @@
 
 **Project:** {{project}}
 
+### Active Tasks
+{{tasks}}
+
 ### Working On
 {{working_on}}
 

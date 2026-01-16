@@ -9,27 +9,36 @@ allowed-tools:
 
 ## Steps
 
-### 1. Analyze Current Session
+### 1. Check Initialized
+
+```bash
+pm tree
+```
+
+If not initialized, run `pm init` first.
+
+### 2. Analyze Current Session
 
 Before saving, identify:
 - What tasks were worked on?
 - What was accomplished?
 - What's still in progress?
 
-### 2. Save Session State
+### 3. Save Session State
 
 Read template from `${PLUGIN_ROOT}/templates/session.md`, fill placeholders:
 - `{{datetime}}` - current datetime (YYYY-MM-DD HH:MM)
 - `{{project}}` - project/repo name
-- `{{working_on}}` - tasks/tickets being worked on
+- `{{tasks}}` - active task IDs as list (e.g., `- OROSPD-589\n- OROSPD-655`)
+- `{{working_on}}` - brief summary of current focus
 - `{{progress}}` - what was accomplished
 - `{{decisions}}` - key decisions made (or "None")
 - `{{blockers}}` - blockers or pending questions (or "None")
 - `{{next}}` - what's remaining
 
-Write to `active/sessions/current`.
+Write to `active/session`.
 
-### 3. Save/Update Task Progress (if applicable)
+### 4. Save/Update Task Progress (if applicable)
 
 Read template from `${PLUGIN_ROOT}/templates/task.md`, fill placeholders:
 - `{{ticket}}` - ticket ID (e.g., PROJ-123)
@@ -42,13 +51,13 @@ Read template from `${PLUGIN_ROOT}/templates/task.md`, fill placeholders:
 
 Write to `active/tasks/TICKET-ID`.
 
-### 4. Archive Completed Tasks (if any)
+### 5. Archive Completed Tasks (if any)
 
 ```bash
 pm archive "active/tasks/TICKET-ID" --category completed
 ```
 
-### 5. Save Learnings (if any discoveries)
+### 6. Save Learnings (if any discoveries)
 
 Read template from `${PLUGIN_ROOT}/templates/learning.md`, fill placeholders:
 - `{{title}}` - topic name
@@ -58,7 +67,7 @@ Read template from `${PLUGIN_ROOT}/templates/learning.md`, fill placeholders:
 
 Write to `learnings/[topic]`.
 
-### 6. Confirm
+### 7. Confirm
 
 ```bash
 pm tree
@@ -70,7 +79,7 @@ Report:
 ## Session Saved
 
 **Updated:**
-- active/sessions/current
+- active/session
 - active/tasks/[ticket]
 
 **Learnings:**

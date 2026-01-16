@@ -7,6 +7,7 @@ description: Use when starting work on a project, ending a session, or needing t
 
 ## When to Use
 
+- **First time on project**: Initialize with `pm init`
 - **Session start**: Load context with `/pm:load`
 - **Session end**: Save progress with `/pm:save`
 - **Mid-session**: Search past work with `/pm:search`
@@ -17,13 +18,12 @@ description: Use when starting work on a project, ending a session, or needing t
 ```
 .project-memory/
 ├── active/
-│   ├── sessions/
-│   │   └── current.md       # Current session state
+│   ├── session.md           # Current session state (singular)
 │   └── tasks/
 │       └── TICKET-123.md    # In-progress work
 ├── archive/
-│   └── 2026-01/
-│       └── completed/       # Archived completed tasks
+│   ├── sessions/            # Past sessions
+│   └── tasks/               # Completed tasks
 └── learnings/
     └── [topic].md           # Persistent learnings
 ```
@@ -34,7 +34,7 @@ Use templates from `${PLUGIN_ROOT}/templates/` when writing memories:
 
 | Memory Type | Template | Path Pattern |
 |-------------|----------|--------------|
-| Session | `templates/session.md` | `active/sessions/*` |
+| Session | `templates/session.md` | `active/session.md` |
 | Task | `templates/task.md` | `active/tasks/*` |
 | Learning | `templates/learning.md` | `learnings/**` |
 
@@ -46,6 +46,7 @@ Read the template, fill placeholders (`{{datetime}}`, `{{content}}`, etc.), then
 
 | Action | Command |
 |--------|---------|
+| Initialize (first time) | `pm init` |
 | Save session | `/pm:save` |
 | Load context | `/pm:load` |
 | Search memories | `/pm:search [term]` |

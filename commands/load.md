@@ -14,12 +14,13 @@ allowed-tools:
 pm tree
 ```
 
-If empty, report "No memories found for this project" and stop.
+If not initialized, run `pm init` and report "Initialized project memory" then stop.
+If empty (initialized but no memories), report "No memories found for this project" and stop.
 
 ### 2. Load Current Session
 
 ```bash
-pm read "active/sessions/current"
+pm read "active/session"
 ```
 
 ### 3. Load Active Tasks
@@ -45,7 +46,7 @@ pm search "[relevant keyword]"
 ## Context Restored
 
 **Current Session:**
-[summary from active/sessions/current]
+[summary from active/session]
 
 **Active Tasks:**
 - [task list with status]
